@@ -213,6 +213,7 @@ export default function Index() {
               placeholder={t.calculator.searchPlaceholder}
               onSelect={(selected) => setMedication(selected as Medication)}
               language={language}
+              insuranceType={insurance!}
             />
 
             {medication && (

@@ -1,28 +1,42 @@
 // Lazy loader for medications data
-let medicationsCache: any[] | null = null;
+let cnopsCacheData: any[] | null = null;
+let cnssCacheData: any[] | null = null;
 
-export async function loadMedications() {
-  if (medicationsCache) {
-    return medicationsCache;
+export async function loadMedications(insuranceType: 'cnops' | 'cnss' = 'cnops') {
+  // Return cached data if available
+  if (insuranceType === 'cnops' && cnopsCacheData) {
+    return cnopsCacheData;
+  }
+  if (insuranceType === 'cnss' && cnssCacheData) {
+    return cnssCacheData;
   }
   
   try {
-    const module = await import('./medications-cnops.json');
-    medicationsCache = module.default;
-    return medicationsCache;
+    let module;
+    if (insuranceType === 'cnss') {
+      module = await import('./medications-cnss.json');
+      cnssCacheData = module.default;
+      return cnssCacheData;
+    } else {
+      module = await import('./medications-cnops.json');
+      cnopsCacheData = module.default;
+      return cnopsCacheData;
+    }
   } catch (error) {
-    console.error('Failed to load medications:', error);
+    console.error(`Failed to load ${insuranceType} medications:`, error);
     return [];
   }
 }
 
-export function searchMedications(query: string, limit: number = 50) {
-  if (!medicationsCache) {
+export function searchMedications(query: string, insuranceType: 'cnops' | 'cnss' = 'cnops', limit: number = 50) {
+  const cache = insuranceType === 'cnss' ? cnssCacheData : cnopsCacheData;
+  
+  if (!cache) {
     return [];
   }
   
   const searchTerm = query.toLowerCase();
-  const results = medicationsCache.filter((med: any) =>
+  const results = cache.filter((med: any) =>
     med.name.toLowerCase().includes(searchTerm) ||
     med.dci?.toLowerCase().includes(searchTerm)
   );

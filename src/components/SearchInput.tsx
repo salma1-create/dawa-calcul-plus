@@ -19,12 +19,14 @@ interface SearchInputProps {
   placeholder: string;
   onSelect: (result: SearchResult) => void;
   language: 'ar' | 'fr';
+  insuranceType: 'cnops' | 'cnss';
 }
 
-// Cache for loaded medications
-let medicationsCache: SearchResult[] | null = null;
+// Separate caches for each insurance type
+let cnopsCache: SearchResult[] | null = null;
+let cnssCache: SearchResult[] | null = null;
 
-export default function SearchInput({ placeholder, onSelect, language }: SearchInputProps) {
+export default function SearchInput({ placeholder, onSelect, language, insuranceType }: SearchInputProps) {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -52,13 +54,16 @@ export default function SearchInput({ placeholder, onSelect, language }: SearchI
 
     setIsLoading(true);
     
-    // Search through real CNOPS database with async loading
+    // Search through database with async loading based on insurance type
     const searchTimer = setTimeout(async () => {
       try {
+        // Get the appropriate cache for this insurance type
+        const currentCache = insuranceType === 'cnss' ? cnssCache : cnopsCache;
+        
         // Load medications if not cached
-        if (!medicationsCache) {
-          const data = await loadMedications();
-          medicationsCache = data.map((med: any) => ({
+        if (!currentCache) {
+          const data = await loadMedications(insuranceType);
+          const mappedData = data.map((med: any) => ({
             id: med.id,
             name: med.name,
             dci: med.dci,
@@ -69,10 +74,20 @@ export default function SearchInput({ placeholder, onSelect, language }: SearchI
             forme: med.forme,
             presentation: med.presentation
           }));
+          
+          // Store in appropriate cache
+          if (insuranceType === 'cnss') {
+            cnssCache = mappedData;
+          } else {
+            cnopsCache = mappedData;
+          }
         }
         
+        // Get the updated cache reference
+        const cache = insuranceType === 'cnss' ? cnssCache! : cnopsCache!;
+        
         const searchTerm = query.toLowerCase();
-        const filtered = medicationsCache.filter(med =>
+        const filtered = cache.filter(med =>
           med.name.toLowerCase().includes(searchTerm) ||
           med.dci?.toLowerCase().includes(searchTerm)
         );
@@ -89,7 +104,7 @@ export default function SearchInput({ placeholder, onSelect, language }: SearchI
     }, 300);
 
     return () => clearTimeout(searchTimer);
-  }, [query]);
+  }, [query, insuranceType]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (!isOpen || results.length === 0) return;
