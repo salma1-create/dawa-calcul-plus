@@ -51,14 +51,12 @@ export default function ResultCard({
                 {medicationName}
               </p>
             </div>
-            {insuranceType === 'cnops' && (
-              <img 
-                src="/logos/cnops-logo.png" 
-                alt="CNOPS" 
-                className="h-12 w-auto object-contain ml-4"
-                onError={(e) => e.currentTarget.style.display = 'none'}
-              />
-            )}
+            <img 
+              src={`/logos/${insuranceType}-logo.png`}
+              alt={`${insuranceType.toUpperCase()} Logo`}
+              className="h-12 w-auto object-contain ml-4"
+              onError={(e) => e.currentTarget.style.display = 'none'}
+            />
           </div>
           <p className="text-sm text-primary-700 mt-1 font-semibold">
             {insuranceType.toUpperCase()}
