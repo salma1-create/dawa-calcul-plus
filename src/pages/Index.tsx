@@ -332,11 +332,12 @@ export default function Index() {
               </Link>
             </div>
           </div>
+          </div>
 
           {/* Ad Banner - Below Insurance Selection */}
           <div className="mt-12 max-w-3xl mx-auto">
-            <PlaceholderAd 
-              height="120px" 
+            <PlaceholderAd
+              height="120px"
               className="mb-4"
               label={language === 'ar' ? 'إعلان' : 'Publicité'}
             />
