@@ -301,19 +301,31 @@ export default function Index() {
       {/* Step 2: Medication Search */}
       {step === 2 && (
         <section className="px-4 py-16 max-w-4xl mx-auto animate-fade-in">
-          <div className="bg-white rounded-2xl shadow-strong p-6 md:p-10">
+          {/* Progress Indicator */}
+          <div className="max-w-md mx-auto mb-8">
+            <div className="flex items-center justify-center gap-2">
+              <div className="h-2 w-full bg-primary-700 rounded-full transition-all duration-500"></div>
+              <div className="h-2 w-full bg-primary-700 rounded-full transition-all duration-500"></div>
+              <div className="h-2 w-full bg-slate-300 dark:border rounded-full transition-all duration-500"></div>
+            </div>
+            <p className={`text-center text-sm text-slate-600 dark:text-muted-foreground mt-2 ${isRTL ? 'font-arabic' : ''}`}>
+              {language === 'ar' ? 'الخطوة 2 من 3' : 'Étape 2 sur 3'}
+            </p>
+          </div>
+
+          <div className="bg-white dark:bg-card rounded-2xl shadow-strong border border-slate-200 dark:border-border p-6 md:p-10 transition-colors duration-300">
             <div className="mb-8">
               <Button
                 variant="ghost"
                 onClick={() => setStep(1)}
-                className={`mb-4 ${isRTL ? 'font-arabic' : ''}`}
+                className={`mb-4 hover:bg-slate-100 dark:hover:bg-muted transition-colors duration-200 ${isRTL ? 'font-arabic' : ''}`}
               >
                 ← {t.calculator.back}
               </Button>
-              <h2 className={`text-3xl font-black text-slate-900 mb-3 ${isRTL ? 'font-arabic' : ''}`}>
+              <h2 className={`text-3xl font-black text-slate-900 dark:text-foreground mb-3 ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
                 {t.calculator.searchMed}
               </h2>
-              <p className={`text-slate-600 ${isRTL ? 'font-arabic' : ''}`}>
+              <p className={`text-slate-600 dark:text-muted-foreground ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
                 {insurance === 'cnops' ? t.calculator.cnops : t.calculator.cnss}
               </p>
             </div>
