@@ -33,34 +33,42 @@ export default function ResultCard({
   };
 
   return (
-    <div dir={dir} className="w-full max-w-2xl mx-auto space-y-4 animate-fade-in">
-      {/* Main Result Card */}
-      <div className="bg-white dark:bg-card rounded-2xl shadow-strong border-2 border-primary-700 dark:border-primary p-6">
-        <h2 className={`text-2xl font-black text-slate-900 dark:text-card-foreground mb-6 ${language === 'ar' ? 'font-arabic' : ''}`}>
-          {t.title}
-        </h2>
+    <div dir={dir} className="w-full max-w-3xl mx-auto space-y-6 animate-scale-in">
+      {/* Modern Result Card */}
+      <div className="glass-card border-gradient p-8">
+        <div className="text-center mb-8">
+          <h2 className={`text-3xl font-black text-gradient-modern mb-2 ${language === 'ar' ? 'font-arabic' : ''}`}>
+            {t.title}
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-blue-500 rounded-full mx-auto"></div>
+        </div>
 
-        {/* Medication Info */}
-        <div className="bg-slate-50 dark:bg-muted rounded-xl p-4 mb-6">
-          <div className="flex items-center justify-between mb-3">
+        {/* Modern Medication Info */}
+        <div className="glass p-6 rounded-2xl mb-8">
+          <div className="flex items-center justify-between">
             <div className="flex-1">
-              <p className={`text-sm text-slate-600 dark:text-muted-foreground mb-1 ${language === 'ar' ? 'font-arabic' : ''}`}>
+              <p className={`text-sm text-slate-600 dark:text-muted-foreground mb-2 font-medium ${language === 'ar' ? 'font-arabic' : ''}`}>
                 {t.medication}
               </p>
-              <p className={`text-lg font-bold text-slate-900 dark:text-card-foreground ${language === 'ar' ? 'font-arabic' : ''}`}>
+              <p className={`text-xl font-bold text-slate-900 dark:text-foreground mb-2 ${language === 'ar' ? 'font-arabic' : ''}`}>
                 {medicationName}
               </p>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-primary-500 animate-pulse"></div>
+                <span className="text-sm font-semibold text-primary-600 dark:text-primary">
+                  {insuranceType.toUpperCase()}
+                </span>
+              </div>
             </div>
-            <img 
-              src={`/logos/${insuranceType}-logo.png`}
-              alt={`${insuranceType.toUpperCase()} Logo`}
-              className="h-12 w-auto object-contain ml-4"
-              onError={(e) => e.currentTarget.style.display = 'none'}
-            />
+            <div className="w-16 h-16 rounded-2xl bg-white dark:bg-card p-3 shadow-floating">
+              <img
+                src={`/logos/${insuranceType}-logo.png`}
+                alt={`${insuranceType.toUpperCase()} Logo`}
+                className="h-full w-auto object-contain"
+                onError={(e) => e.currentTarget.style.display = 'none'}
+              />
+            </div>
           </div>
-          <p className="text-sm text-primary-700 mt-1 font-semibold">
-            {insuranceType.toUpperCase()}
-          </p>
         </div>
 
         {/* Main Amount - What Patient Pays */}
