@@ -346,20 +346,20 @@ export default function Index() {
             </div>
 
             {medication && (
-              <div className="mt-8 p-6 bg-gradient-to-r from-primary-50 to-primary-100 border-2 border-primary-700 rounded-xl animate-scale-in">
-                <p className={`text-sm text-primary-700 mb-2 font-semibold ${isRTL ? 'font-arabic' : ''}`}>
+              <div className="mt-8 p-6 bg-gradient-to-r from-primary-50 to-primary-100 dark:from-muted dark:to-muted border-2 border-primary-700 dark:border-primary rounded-xl animate-scale-in transition-all duration-300">
+                <p className={`text-sm text-primary-700 dark:text-primary mb-2 font-semibold ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
                   {t.calculator.selected}
                 </p>
-                <p className={`text-xl font-black text-slate-900 mb-4 ${isRTL ? 'font-arabic' : ''}`}>
+                <p className={`text-xl font-black text-slate-900 dark:text-foreground mb-4 ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
                   {medication.name}
                 </p>
                 <Button
                   onClick={calculateReimbursement}
                   size="lg"
-                  className={`w-full text-lg ${isRTL ? 'font-arabic' : ''}`}
+                  className={`w-full text-lg hover:scale-105 transition-transform duration-200 ${isRTL ? 'font-arabic' : ''}`}
                 >
                   {t.calculator.calculate}
-                  <ArrowRight className={`w-5 h-5 ${isRTL ? 'mr-2' : 'ml-2'}`} />
+                  <ArrowRight className={`w-5 h-5 ${isRTL ? 'mr-2' : 'ml-2'} transition-transform duration-300 group-hover:translate-x-1`} />
                 </Button>
               </div>
             )}
