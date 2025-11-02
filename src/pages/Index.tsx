@@ -76,9 +76,9 @@ export default function Index() {
   };
 
   return (
-    <div dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-background dark:to-card transition-colors duration-300">
       {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-40 shadow-soft">
+      <header className="border-b bg-white/80 dark:bg-card/80 backdrop-blur-sm sticky top-0 z-40 shadow-soft dark:border-border transition-colors duration-300">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img
