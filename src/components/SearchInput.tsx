@@ -149,9 +149,10 @@ export default function SearchInput({ placeholder, onSelect, language, insurance
           placeholder={placeholder}
           className={cn(
             `w-full px-5 py-4 text-lg rounded-xl
-            border-2 border-slate-300
-            focus:outline-none focus:border-primary-700 focus:ring-4 focus:ring-primary-200
+            border-2 border-slate-300 dark:border-border
+            focus:outline-none focus:border-primary-700 dark:focus:border-primary focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary/20
             transition-all shadow-soft
+            bg-white dark:bg-card text-slate-900 dark:text-card-foreground placeholder-slate-500 dark:placeholder-muted-foreground
             ${language === 'ar' ? 'font-arabic pr-14' : 'pl-14'}`,
             dir === 'rtl' && 'text-right'
           )}
