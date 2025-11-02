@@ -99,25 +99,40 @@ export default function Index() {
 
       {/* Hero Section */}
       {step === 1 && (
-        <section className="px-4 py-16 md:py-24 max-w-6xl mx-auto text-center animate-fade-in">
-          {/* Animated background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-50/20 via-transparent to-blue-50/20 dark:from-primary-950/20 dark:via-transparent dark:to-blue-950/20 -z-10"></div>
+        <section className="relative px-4 py-20 md:py-32 max-w-7xl mx-auto">
+          {/* Modern background with decorative elements */}
+          <div className="absolute inset-0 bg-gradient-modern -z-10"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse-slow"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse-slow" style={{ animationDelay: '4s' }}></div>
 
-          <div className="mb-8 relative">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-100 dark:bg-muted rounded-full mb-6 shadow-soft hover:shadow-lg transition-all duration-300 hover:scale-105">
-              <Sparkles className="w-5 h-5 text-primary-700 dark:text-primary animate-pulse" />
-              <span className={`text-sm font-semibold text-primary-700 dark:text-primary ${isRTL ? 'font-arabic' : ''}`}>
-                {t.app.subtitle}
-              </span>
+          <div className="relative z-10 text-center animate-slide-up">
+            {/* Modern badge */}
+            <div className="mb-12 inline-flex items-center">
+              <div className="glass px-6 py-3 rounded-full shadow-glow hover-lift">
+                <div className="flex items-center gap-3">
+                  <Sparkles className="w-5 h-5 text-primary-600 dark:text-primary animate-bounce-gentle" />
+                  <span className={`text-sm font-semibold text-primary-700 dark:text-primary ${isRTL ? 'font-arabic' : ''}`}>
+                    {t.app.subtitle}
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <h2 className={`text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-foreground mb-6 leading-tight ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
-            {t.hero.title}
-          </h2>
-          <p className={`text-xl md:text-2xl text-slate-600 dark:text-muted-foreground mb-10 max-w-3xl mx-auto ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
-            {t.hero.subtitle}
-          </p>
+            {/* Modern heading with gradient text */}
+            <h2 className={`text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight ${isRTL ? 'font-arabic' : ''}`}>
+              <span className="text-gradient-modern block mb-2">
+                {t.hero.title.split(' ').slice(0, -1).join(' ')}
+              </span>
+              <span className="text-primary-600 dark:text-primary">
+                {t.hero.title.split(' ').slice(-1)[0]}
+              </span>
+            </h2>
+
+            {/* Modern subtitle */}
+            <p className={`text-xl md:text-2xl text-slate-600 dark:text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed font-medium ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
+              {t.hero.subtitle}
+            </p>
 
           {/* Trust Badges */}
           <div className="flex flex-wrap justify-center gap-6 mb-10 text-sm text-slate-600 dark:text-muted-foreground">
