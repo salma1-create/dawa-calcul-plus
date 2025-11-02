@@ -212,6 +212,7 @@ export default function Index() {
                   setStep(2);
                 }}
                 className="group relative p-8 rounded-3xl glass-card hover-lift hover-glow border-2 border-transparent hover:border-primary-200 dark:hover:border-primary transition-all duration-500 animate-slide-in-left"
+              >
                 {/* Glow effect on hover */}
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
