@@ -35,19 +35,19 @@ export default function ResultCard({
   return (
     <div dir={dir} className="w-full max-w-2xl mx-auto space-y-4 animate-fade-in">
       {/* Main Result Card */}
-      <div className="bg-white rounded-2xl shadow-strong border-2 border-primary-700 p-6">
-        <h2 className={`text-2xl font-black text-slate-900 mb-6 ${language === 'ar' ? 'font-arabic' : ''}`}>
+      <div className="bg-white dark:bg-card rounded-2xl shadow-strong border-2 border-primary-700 dark:border-primary p-6">
+        <h2 className={`text-2xl font-black text-slate-900 dark:text-card-foreground mb-6 ${language === 'ar' ? 'font-arabic' : ''}`}>
           {t.title}
         </h2>
 
         {/* Medication Info */}
-        <div className="bg-slate-50 rounded-xl p-4 mb-6">
+        <div className="bg-slate-50 dark:bg-muted rounded-xl p-4 mb-6">
           <div className="flex items-center justify-between mb-3">
             <div className="flex-1">
-              <p className={`text-sm text-slate-600 mb-1 ${language === 'ar' ? 'font-arabic' : ''}`}>
+              <p className={`text-sm text-slate-600 dark:text-muted-foreground mb-1 ${language === 'ar' ? 'font-arabic' : ''}`}>
                 {t.medication}
               </p>
-              <p className={`text-lg font-bold text-slate-900 ${language === 'ar' ? 'font-arabic' : ''}`}>
+              <p className={`text-lg font-bold text-slate-900 dark:text-card-foreground ${language === 'ar' ? 'font-arabic' : ''}`}>
                 {medicationName}
               </p>
             </div>
