@@ -86,7 +86,7 @@ export default function Index() {
               alt="Taawidaty logo"
               className="h-12 w-auto"
             />
-            <h1 className={`text-2xl font-black text-primary-800 ${isRTL ? 'font-arabic' : ''}`}>
+            <h1 className={`text-2xl font-black text-primary-800 dark:text-primary ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
               {t.app.title}
             </h1>
           </div>
