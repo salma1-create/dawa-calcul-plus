@@ -6,69 +6,69 @@
 
 @layer base {
   :root {
-    /* Medical Blue Primary Palette */
-    --primary-50: 199 100% 97%;
-    --primary-100: 199 95% 92%;
-    --primary-200: 199 93% 84%;
-    --primary-300: 199 93% 72%;
-    --primary-400: 199 91% 60%;
-    --primary-500: 199 89% 48%;
-    --primary-600: 199 84% 39%;
-    --primary-700: 199 76% 32%;
-    --primary-800: 200 65% 26%;
-    --primary-900: 201 55% 22%;
-    
-    /* Success - Money Saved */
-    --success-50: 142 76% 96%;
-    --success-100: 141 78% 91%;
-    --success-500: 142 71% 45%;
-    --success-600: 142 76% 36%;
-    --success-700: 142 72% 29%;
-    
-    /* Warning */
-    --warning-50: 48 100% 96%;
-    --warning-100: 48 96% 89%;
-    --warning-500: 38 92% 50%;
-    --warning-600: 32 95% 44%;
-    
-    /* Error */
-    --error-50: 0 86% 97%;
-    --error-100: 0 93% 94%;
-    --error-500: 0 84% 60%;
-    --error-600: 0 72% 51%;
-    
-    /* Base Colors */
-    --background: 210 20% 98%;
-    --foreground: 222 47% 11%;
+    /* Medical Blue Primary Palette - Warmer tones */
+    --primary-50: 199 100% 98%;
+    --primary-100: 199 97% 95%;
+    --primary-200: 199 94% 90%;
+    --primary-300: 199 92% 85%;
+    --primary-400: 199 90% 75%;
+    --primary-500: 199 88% 60%;
+    --primary-600: 199 84% 48%;
+    --primary-700: 199 76% 38%;
+    --primary-800: 200 65% 30%;
+    --primary-900: 201 55% 25%;
+
+    /* Success - Money Saved - Warmer greens */
+    --success-50: 142 76% 97%;
+    --success-100: 141 78% 94%;
+    --success-500: 142 71% 50%;
+    --success-600: 142 76% 42%;
+    --success-700: 142 72% 35%;
+
+    /* Warning - Warmer yellows */
+    --warning-50: 48 100% 97%;
+    --warning-100: 48 96% 92%;
+    --warning-500: 38 92% 55%;
+    --warning-600: 32 95% 48%;
+
+    /* Error - Softer reds */
+    --error-50: 0 86% 98%;
+    --error-100: 0 93% 96%;
+    --error-500: 0 84% 65%;
+    --error-600: 0 72% 55%;
+
+    /* Base Colors - Warmer background */
+    --background: 40 30% 98%;
+    --foreground: 222 35% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 222 35% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    
+    --popover-foreground: 222 35% 12%;
+
     /* Primary Semantic */
-    --primary: 199 76% 32%;
+    --primary: 199 76% 38%;
     --primary-foreground: 0 0% 100%;
-    
-    /* Secondary */
-    --secondary: 210 20% 96%;
-    --secondary-foreground: 222 47% 11%;
-    
+
+    /* Secondary - Warmer grays */
+    --secondary: 40 20% 97%;
+    --secondary-foreground: 222 35% 12%;
+
     /* Muted */
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 47%;
-    
+    --muted: 40 20% 97%;
+    --muted-foreground: 215 16% 52%;
+
     /* Accent */
-    --accent: 199 93% 84%;
-    --accent-foreground: 199 76% 32%;
-    
+    --accent: 199 93% 88%;
+    --accent-foreground: 199 76% 38%;
+
     /* Destructive */
-    --destructive: 0 72% 51%;
+    --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
-    
+
     /* Border & Input */
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 199 76% 32%;
+    --border: 214 32% 94%;
+    --input: 214 32% 94%;
+    --ring: 199 76% 38%;
     
     --radius: 0.75rem;
 
