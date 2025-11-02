@@ -203,30 +203,37 @@ export default function Index() {
                   setStep(2);
                 }}
                 className="group relative p-8 rounded-3xl glass-card hover-lift hover-glow border-2 border-transparent hover:border-primary-200 dark:hover:border-primary transition-all duration-500 animate-slide-in-left"
-                <div className="flex justify-center mb-6">
-                  <img 
-                    src="/logos/cnops-logo.png" 
-                    alt="CNOPS Logo" 
-                    className="h-24 w-auto object-contain"
-                    onError={(e) => {
-                      // Fallback to emoji if image not found
-                      e.currentTarget.style.display = 'none';
-                      const fallback = document.createElement('div');
-                      fallback.className = 'text-6xl';
-                      fallback.textContent = '🏥';
-                      e.currentTarget.parentElement?.appendChild(fallback);
-                    }}
-                  />
-                </div>
-                <h3 className="text-2xl font-black text-slate-900 dark:text-foreground mb-3 transition-colors duration-300">
-                  {t.calculator.cnops}
-                </h3>
-                <p className={`text-slate-600 dark:text-muted-foreground ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
-                  {t.calculator.cnopsDesc}
-                </p>
-                <div className={`mt-4 flex items-center justify-center gap-2 text-primary-700 dark:text-primary font-semibold ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
-                  {t.hero.cta}
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="relative z-10">
+                  <div className="flex justify-center mb-8">
+                    <div className="w-32 h-32 rounded-2xl bg-white dark:bg-card p-6 shadow-floating group-hover:scale-110 transition-transform duration-300">
+                      <img
+                        src="/logos/cnops-logo.png"
+                        alt="CNOPS Logo"
+                        className="h-full w-auto object-contain"
+                        onError={(e) => {
+                          // Fallback to emoji if image not found
+                          e.currentTarget.style.display = 'none';
+                          const fallback = document.createElement('div');
+                          fallback.className = 'text-6xl flex items-center justify-center h-full';
+                          fallback.textContent = '🏥';
+                          e.currentTarget.parentElement?.appendChild(fallback);
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-3xl font-black text-slate-900 dark:text-foreground mb-4 transition-colors duration-300">
+                    {t.calculator.cnops}
+                  </h3>
+                  <p className={`text-slate-600 dark:text-muted-foreground mb-6 leading-relaxed ${isRTL ? 'font-arabic' : ''} transition-colors duration-300`}>
+                    {t.calculator.cnopsDesc}
+                  </p>
+                  <div className={`flex items-center justify-center gap-3 text-primary-600 dark:text-primary font-bold text-lg ${isRTL ? 'font-arabic' : ''} transition-all duration-300 group-hover:gap-4`}>
+                    <span>{t.hero.cta}</span>
+                    <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+                  </div>
                 </div>
               </button>
 
